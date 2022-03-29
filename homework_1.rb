@@ -1,3 +1,3 @@
 def message
-    puts 'Hello, World'
+    puts 'Hello, World!'
 end
