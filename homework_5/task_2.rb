@@ -84,14 +84,13 @@ class Router
   end
 
   def init
-    resources(PostsController, 'posts')
-
     loop do
       print 'Choose resource you want to interact (1 - Posts, 2 - Comments, q - Exit): '
       choice = gets.chomp
 
       case choice
       when '1'
+        resources(PostsController, 'posts')
         PostsController.connection(@routes['posts'])
       when 'q'
         break
