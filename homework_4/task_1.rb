@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-STUDENTS_LIST_PATH = 'students.txt'
+STUDENTS_LIST_PATH = 'students_1.txt'
 BUFFER = 'buffer.txt'
 
 def index
@@ -30,8 +30,8 @@ def update(id, text)
 
   buffer.close
   File.write(STUDENTS_LIST_PATH, File.read(BUFFER))
-
   File.delete(BUFFER) if File.exist?(BUFFER)
+  index
 end
 
 def delete(id)
@@ -44,4 +44,8 @@ def delete(id)
   File.write(STUDENTS_LIST_PATH, File.read(BUFFER))
 
   File.delete(BUFFER) if File.exist?(BUFFER)
+  index
 end
+
+
+where('Anna')

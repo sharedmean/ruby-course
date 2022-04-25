@@ -3,10 +3,9 @@
 STUDENTS_LIST_PATH = 'students.txt'
 RESULT = 'result.txt'
 
-def read_file
-  file = File.open(STUDENTS_LIST_PATH)
-  file_data = file.readlines.map(&:chomp)
-  file.close
+def read_file(name)
+  file_data = File.read(name).split("\n")
+  puts(file_data)
   file_data
 end
 
@@ -23,8 +22,7 @@ def find_students(students, age)
   copy
 end
 
-file_data = read_file
-puts(file_data)
+file_data = read_file(STUDENTS_LIST_PATH)
 loop do
   print "Enter students' age. If you wanna stop, enter '0' -> "
   age = gets.to_i
@@ -33,8 +31,5 @@ loop do
   file_data = find_students(file_data, age)
   break if file_data.empty?
 end
-file = File.open(RESULT)
-file_data = file.readlines.map(&:chomp)
-file.close
-puts(file_data)
+file_data = read_file(RESULT)
 File.delete(RESULT) if File.exist?(RESULT)
